@@ -23,7 +23,7 @@ def main():
     # print(board)
     # print(board.game_over())
 
-    game = TicTacToe()
+    game = TicTacToe(5)
     GameApp(game.board_view).run()
 
 

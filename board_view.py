@@ -15,11 +15,15 @@ class BoardView(Screen):
         grid = GridLayout()
         grid.cols = size
         for r in range(size):
+            row = []
             for c in range(size):
-                button = Button(text="X", font_size = '120sp')
+                button = Button(text="", font_size='120sp')
                 button.bind(on_press=partial(callback, (r, c)))
-                self.buttons.append(button)
+                row.append(button)
                 grid.add_widget(button)
+            self.buttons.append(row)
         box.add_widget(grid)
         self.add_widget(box)
 
+    def set_cell(self, row, col, val):
+        self.buttons[row][col].text = val
